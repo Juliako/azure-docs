@@ -58,9 +58,10 @@ You can view AMS learning paths here:
 ## Prerequisites
 
 To start using Azure Media Services, you should have the following:
-
 1. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com).
-2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).rtal-manage-streaming-endpoints.md).
+2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).
+3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md). Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).
+4. (Recommended) By default accounts created after January 10th 2017 includes standard streaming endpoint which doesn't require streaming units to get advanced features such as dynamic packaging or dynamic encryption. If you have classic streaming endpoints (version 1.0) please make sure to have at least one streaming unit on the streaming endpoint from which you want to stream content. Optinally you can also migrate existing classic streaming endpoints to standard streaming endpoints for a better experience. For more information, see [Managing streaming endpoints](media-services-portal-manage-streaming-endpoints.md).
 
 ## Concepts and overview
 For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
