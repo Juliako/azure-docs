@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/14/2016
-ms.author: juliako;anilmur
+ms.author: juliako;anilmur;cenkd
 
 ---
 # Azure Media Services overview and common scenarios
@@ -29,7 +29,7 @@ You can choose to stream your content live or deliver content on demand. This to
 
 To build Media Services solutions, you can use:
 
-* [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
+* [Media Services REST API](https://docs.microsoft.com/en-us/rest/api/media/operations/azure-media-services-rest-api-reference)
 * One of the available client SDKs:
 	* [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
 	* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
@@ -60,12 +60,7 @@ You can view AMS learning paths here:
 To start using Azure Media Services, you should have the following:
 
 1. An Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com).
-2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).
-3. (Optional) Set up development environment. Choose .NET or REST API for your development environment. For more information, see [Set up environment](media-services-dotnet-how-to-use.md).
-
-	Also, learn how to connect  programmatically [Connect](media-services-dotnet-connect-programmatically.md).
-
-4. (Recommended) Allocate one or more scale units. It is recommended to allocate one or more scale units for applications in production environment.   For more information, see [Managing streaming endpoints](media-services-portal-manage-streaming-endpoints.md).
+2. An Azure Media Services account. Use the Azure portal, .NET, or REST API to create Azure Media Services account. For more information, see [Create Account](media-services-portal-create-account.md).rtal-manage-streaming-endpoints.md).
 
 ## Concepts and overview
 For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
@@ -89,11 +84,12 @@ This section describes common scenarios and provides links to relevant topics. T
     If your asset is storage encrypted, you **must** configure asset delivery policy. 
 4. Publish the asset by creating an OnDemand locator.
    
-    Make sure to have at least one streaming reserved unit on the streaming endpoint from which you want to stream content.
+    (Optional) Accounts created after January 10th 2017 by default includes strandard streaming endpoint which doesn't require streaming units to get advanced features such as dynamic packaging or dynamic encryption. If you have classic streaming endpoints (version 1.0) please make sure to have at least one streaming unit on the streaming endpoint from which you want to stream content. Optinally you can also migrate existing classic streaming endpoints to standard streaming endpoints for a better experience.
 5. Stream published content.
 
+
 ### Protect content in storage, deliver dynamically encrypted streaming media
-To be able to use dynamic encryption, you must first get at least one streaming reserved unit on the streaming endpoint from which you want to stream encrypted content.
+If you have classic streaming endpoints(version 1.0), to be able to use dynamic encryption, you must first get at least one streaming unit on the streaming endpoint from which you want to stream encrypted content. Accounts created after January 10th 2017 by default includes standard streaming endpoint which doesn't require streaming units to get advanced features such as dynamic packaging or dynamic encryption. Streaming units are required for existing classic (version 1.0) streaming endpoints. It is recommeded to migrate existing classic streaming endpoints to standard streaming endpoint for a better experience.
 
 1. Upload a high-quality mezzanine file into an asset. Apply storage encryption option to the asset.
 2. Encode to a set of adaptive bitrate MP4 files. Apply storage encryption option to the output asset.
@@ -121,7 +117,7 @@ Media Analytics is a collection of speech and vision components that make it eas
 2. Encode to a single MP4 file.
 3. Publish the asset by creating an OnDemand or SAS locator.
    
-    If using OnDemand locator, make sure to have at least one streaming reserved unit on the streaming endpoint from which you plan to progressively download content.
+    If using OnDemand locator, make sure to have a standard streaming endpoint or at least one streaming unit for classic streaming endpoints (version 1.0) from which you plan to progressively download content.
    
     If using SAS locator, the content is downloaded from the Azure blob storage. In this case, you do not need to have streaming reserved units.
 4. Progressively download content.
@@ -132,14 +128,14 @@ When working with Live Streaming the following components are commonly involved:
 * A camera that is used to broadcast an event.
 * A live video encoder that converts signals from the camera to streams that are sent to a live streaming service.
 
-Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronizationto achieve seamless failover with no data loss.
+Optionally, multiple live time synchronized encoders. For certain critical live events that demand very high availability and quality of experience, it is recommended to employ active-active redundant encoders with time synchronization to achieve seamless failover with no data loss.
 
-* A live streaming service that enables you to do the following:
+** A live streaming service that enables you to do the following:**
 * ingest live content using various live streaming protocols (for example RTMP or Smooth Streaming),
 * (optionally) encode your stream into adaptive bitrate stream
 * preview your live stream,
 * record and store the ingested content in order to be streamed later (Video-on-Demand)
-* deliver the content through common streaming protocols (for example, MPEG DASH, Smooth, HLS) directly to your customers, or to a Content Delivery Network (CDN) for further distribution.
+* deliver the content through common streaming protocols (for example, MPEG DASH, Smooth Streaming, HLS) directly to your customers, or to a Content Delivery Network (CDN) such as Azure CDN for further distribution.
 
 **Microsoft Azure Media Services** (AMS) provides the ability to ingest,  encode, preview, store, and deliver your live streaming content.
 
@@ -149,7 +145,7 @@ In Azure Media Services, **Channels**, **Programs**, and **StreamingEndpoints** 
 
 A **Channel** represents a pipeline for processing live streaming content. A Channel can receive a live input streams in the following ways:
 
-* An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further processing. You can use the following live encoders that output multi-bitrate Smooth Streaming: Elemental, Envivio, Cisco.  The following live encoders output RTMP: Adobe Flash Live, Telestream Wirecast, and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
+* An on-premises live encoder sends multi-bitrate **RTMP** or **Smooth Streaming** (fragmented MP4) to the Channel that is configured for **pass-through** delivery. The **pass-through** delivery is when the ingested streams pass through **Channel**s without any further transcoding or encoding. You can use live encoders that outputs multi-bitrate Smooth Streaming such as: MediaExcel, Ateme, Imagine Communications, Elemental, Envivio and Cisco.The following live encoders can be used to output RTMP: Adobe Flash Live, Telestream Wirecast, Teradek, Haivision and Tricaster transcoders.  A live encoder can also send a single bitrate stream to a channel that is not enabled for live encoding, but that is not recommended. When requested, Media Services delivers the stream to customers.
 
 > [!NOTE]
 > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
@@ -181,7 +177,7 @@ Azure Media Services provides the tools you need to create rich, dynamic client 
 Media Services supports integration with Azure CDN. For information on how to enable Azure CDN, see [How to Manage Streaming Endpoints in a Media Services Account](media-services-portal-manage-streaming-endpoints.md).
 
 ## Scaling a Media Services account
-You can scale **Media Services** by specifying the number of **Streaming Reserved Units** and **Encoding Reserved Units** that you would like your account to be provisioned with.
+You can scale **Media Services** by specifying the number of **Streaming Units** and **Encoding Reserved Units** that you would like your account to be provisioned with.
 
 You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account.
 
@@ -195,7 +191,7 @@ You can also scale your Media Services account by adding storage accounts to it.
 
 ## Service Level Agreement (SLA)
 * For Media Services Encoding, we guarantee 99.9% availability of REST API transactions.
-* For Streaming, we will successfully service requests with a 99.9% availability guarantee for existing media content when at least one Streaming Unit is purchased.
+* For Streaming, we will successfully service requests with a 99.9% availability guarantee for existing media content when at least one Streaming Unit is purchased or standard streaming endpoint is used.
 * For Live Channels, we guarantee that running Channels will have external connectivity at least 99.9% of the time.
 * For Content Protection, we guarantee that we will successfully fulfill key requests at least 99.9% of the time.
 * For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.
