@@ -328,34 +328,6 @@ Example:
   ]
 ```
 
-### audioEffects
-
-|Name|Description|
-|---|---|
-|id|The audio effect ID.|
-|type|The audio effect type (for example, Clapping, Speech, Silence).|
-|instances|A list of time ranges where this audio effect appeared.|
-
-```json
-"audioEffects": [
-{
-    "id": 0,
-    "type": "Clapping",
-    "instances": [
-    {
-        "start": "00:00:00",
-        "end": "00:00:03"
-    },
-    {
-        "start": "00:01:13",
-        "end": "00:01:21"
-    }
-    ]
-}
-]
-```
-
-
 ### sentiments
 
 Sentiments are aggregated by their sentimentType field (Positive/Neutral/Negative). For example, 0-0.1, 0.1-0.2.
