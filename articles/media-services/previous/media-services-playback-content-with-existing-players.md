@@ -70,4 +70,3 @@ For information about how to develop your own players, see [Developing video pla
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-[AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png
