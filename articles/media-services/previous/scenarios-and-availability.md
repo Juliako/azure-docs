@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
+ms.date: 10/15/2018
 ms.author: juliako;anilmur
 ---
 # Scenarios and availability of Media Services features across datacenters
