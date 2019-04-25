@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
 ---
 
@@ -69,6 +69,12 @@ For more information, see:
 
 - [Content protection overview](content-protection-overview.md)
 - [Design of a multi-DRM content protection system with access control](design-multi-drm-system-with-access-control.md)
+
+## Encoding 
+
+### What encoding features are still not available in Azure Media Services v3?
+
+For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## Media Services v2 vs v3 
 
