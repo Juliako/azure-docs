@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 # Assets
 
-In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) contains digital files (including video, audio, images, thumbnail collections, text tracks, and closed caption files) and the metadata about these files. After the digital files are uploaded into an Asset, they can be used in the Media Services encoding, streaming, analyzing content workflows. For more information, see the [Upload digital files into Assets](#upload-digital-files-into-assets) section below.
+In Azure Media Services, an [Asset](https://docs.microsoft.com/rest/api/media/assets) contains information about digital files stored in Azure Storage (including video, audio, images, thumbnail collections, text tracks, and closed caption files). 
 
 An Asset is mapped to a blob container in the [Azure Storage account](storage-account-concept.md) and the files in the Asset are stored as block blobs in that container. Media Services supports Blob tiers when the account uses General-purpose v2 (GPv2) storage. With GPv2, you can move files to [Cool or Archive storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Archive** storage is suitable for archiving source files when no longer needed (for example, after they have been encoded).
 
@@ -30,7 +30,7 @@ The **Archive** storage tier is only recommended for very large source files tha
 
 ## Upload digital files into Assets
 
-One of the common Media Services workflows is to upload, encode, and stream a file. This section outlines the general steps.
+After the digital files are associated with an Asset, they can be used in the Media Services encoding, streaming, analyzing content workflows. One of the common Media Services workflows is to upload, encode, and stream a file. This section outlines the general steps.
 
 > [!TIP]
 > Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
