@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 06/21/2019
 ms.author: juliako
 ---
 
@@ -19,7 +19,7 @@ ms.author: juliako
 
 This article gives answers to Azure Media Services (AMS) v3 frequently asked questions.
 
-## v3 APIs
+## General
 
 ### What Azure roles can perform actions on Azure Media Services resources? 
 
@@ -42,6 +42,17 @@ When using pagination, you should always use the next link to enumerate the coll
 ### What features are not yet available in Azure Media Services v3?
 
 For details, see [feature gaps with respect to v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
+
+### What is the process of moving a Media Services account from one subscription to another
+
+You need to move the entire resource group that contains the Media Services account to the new subscription. You must move all attached resources. Azure Storage accounts, Azure CDN profiles, etc. You need to stop all the Streaming Endpoints and live streaming resources. Your users will not be able to access your content for the duration of the resource group move. Do not start the Streaming Endpoint until the move has completed.
+
+As with any resources in Azure, resource group moves can take some time. This is very difficult to calculate with any sort of accuracy.
+
+A Media Services account and a Azure Storage account may become “disconnected” following the resource group move. If this happens, the first step in troubleshooting should be rotating the Storage Account keys. If rotating the Storage Account keys does not resolve the “disconnected” status of the Media Services account, file a support request with the Media Services support team.
+
+> [!TIP]
+> It is best practice to create backups of all data in your account before migrating to a different subscription.
 
 ## Live streaming 
 
