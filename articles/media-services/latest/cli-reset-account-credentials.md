@@ -33,4 +33,4 @@ The Azure CLI script in this article shows how to reset your account credentials
 
 ## Next steps
 
-[Media Services overview](media-services-overview.md)
+[az ams](https://docs.microsoft.com/en-us/cli/azure/ams?view=azure-cli-latest)
