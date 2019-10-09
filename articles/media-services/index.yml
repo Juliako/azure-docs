@@ -1,52 +1,67 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure Media Services Documentation
+### YamlMime:Hub
+
+title: Azure Media Services Documentation # < 60 chars
+summary: Azure Media Services is a cloud-based media workflow platform that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting. Azure Media Services integrates seamlessly with the Azure CDN to scale delivery with CDN services from Akamai and Verizon, enabling customers to select the right solution for their needs—for example, for load balance across content delivery networks. Azure Media Services Video Indexer enables you to extract metadata and insights using AI with the built-in video and audio analyzer presets. You can easily improve accuracy by training the provided AI models with your own content using the Video Indexer API. 
+# brand: aspnet | azure | dotnet | dynamics | m365 | ms-graph | office | power-platform | sql | sql-server | vs | visual-studio | windows | xamarin
+brand: azure
+
 metadata:
-  document_id: 
-  title: Azure Media Services Documentation | Microsoft Docs
-  meta.description:  Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. 
-  services: media-services
-  author: juliako
-  manager: femila
-  ms.service: media-services
-  ms.tgt_pltfrm: na
-  ms.devlang: na
-  ms.topic: landing-page
-  ms.date: 03/11/2019
-  ms.author: juliako
-abstract:
+  title: Azure Media Services Documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Media Services is a cloud-based media workflow platform that enables you to build solutions that require encoding, packaging, content-protection, and live event broadcasting. Azure Media Services integrates seamlessly with the Azure CDN to scale delivery with CDN services from Akamai and Verizon, enabling customers to select the right solution for their needs—for example, for load balance across content delivery networks. Azure Media Services Video Indexer enables you to extract metadata and insights using AI with the built-in video and audio analyzer presets. You can easily improve accuracy by training the provided AI models with your own content using the Video Indexer API. 
+  services: media-services
+  ms.service: media-services #Required; service per approved list. service slug assigned to your service by ACOM.
+  ms.subservice: 
+  ms.topic: hub-page # Required
+  ms.collection: collection
+  author: Juliako #Required; your GitHub user alias, with correct capitalization.
+  ms.author: juliako #Required; microsoft alias of author; optional team alias.
+  ms.date: 07/03/2019 #Required; mm/dd/yyyy format.
 
-sections:
-
-  - items:
-    - type: list
-      style: cards
-      className: cardsM
-      columns: 2
-      items:
-        - href: /azure/media-services/latest/
-          html: <p>Encode, package, protect your content, stream videos on-demand, broadcast live, analyze with Media Services v3.</p>
-          image:
-            src: /azure/media-services/latest/media/index/AMSIcons-encoding.svg
-          title: Azure Media Services v3 
-        - href: /azure/media-services/previous/
-          html: <p>Encode, package, protect and more. This is the legacy service that is in maintenance. Customers are encouraged to migrate to Media Services v3 where new features and enhancements are being made.</p>          
-          image:
-            src:
-          title: Azure Media Services v2 (legacy)
-        - href: /azure/cdn/
-          html: <p>Use the power of the Azure CDN to stream content at scale with services from Akamai and Verizon or load balance across multiple content delivery networks.</p>
-          image:
-            src: /azure/cdn/media/index/cdn.svg
-          title: CDN
-        - href: https://amp.azure.net/libs/amp/latest/docs/index.html
-          html: <p>Play back media content from Microsoft Azure Media Services on a wide variety of browsers and devices.</p>
-          image:
-            src: /azure/media-services/latest/media/index/AMSIcons-Player.svg
-          title: Azure Media Player
-        - href: /azure/media-services/video-indexer/
-          html: <p>Extract the insights from your video and audio files using Video Indexer.</p>
-          image:
-            src: media/index/AMSIcons-media_analytics.svg
-          title: Azure Media Services Video Indexer
+# highlightedContent section (optional)
+# Maximum of 8 items
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+  items:
+    # Card
+    - title: About Media Services v3
+      itemType: overview
+      url: ./latest/media-services-overview.md
+    # Card
+    - title: About Media Services v2
+      itemType: overview
+      url: ./previous/media-services-overview.md      
+    # Card
+    - title: About Video Indexer
+      itemType: overview
+      url: ./video-indexer/video-indexer-overview.md
+    - title: Azure Media Services specifications
+      itemType: learn
+      url: media-services-specifications-live-timed-metadata.md
+# productDirectory section (optional)
+productDirectory:
+  items:
+    # Card
+    - title: CDN
+      # imageSrc should be square in ratio with no whitespace
+      imageSrc: ../cdn/media/index/cdn.svg
+      links:
+        - url: https://docs.microsoft.com/en-us/azure/cdn/cdn-overview
+          text: What is CDN?
+        - url: https://docs.microsoft.com/en-us/azure/cdn/create-profile-resource-manager-template
+          text:  Create a profile
+    # Card
+    - title: EventGrid
+      imageSrc:  
+      links:
+        - url: https://docs.microsoft.com/en-us/azure/event-grid/
+          text: What is EventGrid?
+        - url: file2b.md OR https://docs.microsoft.com/file2b
+          text: linktext2b
+    # Card
+    - title: Azure Media Player
+      imageSrc: ./media/index/AMSIcons-media_analytics.svg
+      links:
+        - url: https://amp.azure.net/libs/amp/latest/docs/index.html
+          text: About Azure Media Player
+        - url: file3b.md OR https://docs.microsoft.com/file3b
+          text: linktext3b
