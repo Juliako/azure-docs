@@ -17,7 +17,7 @@ ms.date: 01/25/2019
 ms.author: juliako
 ---
 
-# CLI example: Publish an asset
+# Publish an asset - CLI
 
 The Azure CLI script in this article shows how to create a Streaming Locator and get Streaming URLs back. 
 
