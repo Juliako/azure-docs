@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 10/21/2019
 ms.author: xpouyat
 
 ---
@@ -137,6 +137,7 @@ Interim and Final SSPK licensees can submit technical questions to [smoothpk@mic
 * Orange SA
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
+* Shenzhen Chuangwei-RGB Electronics Co.,Ltd.
 * Shenzhen Coship Electronics CO., LTD
 * Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
