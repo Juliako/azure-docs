@@ -12,7 +12,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 03/05/2020
 ms.author: juliako
 ms.custom: seodec18
 
@@ -21,6 +21,9 @@ ms.custom: seodec18
 # Encoding video and audio with Media Services
 
 The term encoding in Media Services applies to the process of converting files containing digital video and/or audio from one standard format to another, with the purpose of (a) reducing the size of the files, and/or (b) producing a format that's compatible with a broad range of devices and apps. This process is also referred to as video compression, or transcoding. See the [Data compression](https://en.wikipedia.org/wiki/Data_compression) and the [What Is Encoding and Transcoding?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) for further discussion of the concepts.
+
+> [!IMPORTANT]
+> Media Servicies does not bill for cancelled or errored jobs. You are only charged for finished jobs.
 
 Videos are typically delivered to devices and apps by [progressive download](https://en.wikipedia.org/wiki/Progressive_download) or through [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
 
