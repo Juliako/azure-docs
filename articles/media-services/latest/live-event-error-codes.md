@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2020
+ms.date: 04/24/2020
 ms.author: juliako
 
 ---
@@ -37,6 +37,7 @@ When you subscribe to the [Event Grid](https://docs.microsoft.com/azure/event-gr
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
 | MPE_INGEST_FRAMERATE_EXCEEDED | The incoming encoder ingested streams with framerates exceeded the maximum allowed 30fps for encoding live events/channels.|
 | MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED | The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels.|
+| MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV|  The incoming encoder has sent more than 40 MBs of video data without any key frames; or has sent over 20MB of audio data at once.|
 
 ## LiveEventEncoderDisconnected
 
@@ -48,7 +49,6 @@ You may see one of the following errors from the [LiveEventEncoderDisconnected](
 |MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID|The timestamp for video or audio FLVTag is invalid from RTMP encoder.|
 |MPE_CAPACITY_LIMIT_REACHED|Encoder sending data too fast.|
 |Unknown error codes|These error codes can range from memory error to duplicate entries in hash map.|
-
 
 ## See also
 
