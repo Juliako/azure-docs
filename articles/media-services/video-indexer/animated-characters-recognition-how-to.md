@@ -20,6 +20,15 @@ Azure Media Services Video Indexer supports detection, grouping, and recognition
 
 This article demonstrates to how to use the animated character detection with the Azure portal and the Video Indexer API.
 
+## Limitations and considerations
+
+* Video Indexer and Custom Vistion accounts need to be in the same region. 
+* The Custom Vision integration is currently not supported in the Japan region.
+* For the initial training, upload at least two videos. Each video should ideally be longer than 15 minutes in order to get good recognition model. If you have shorter episodes, we recommend uploading at least 30 minutes of video content before training. This will allow you to merge groups that belong to the same character from different scenes and backgrounds and therefore increase the chance it will detect the character in the episodes you index. To train a model on multiple videos (episodes) you need to index them all with the same animation model. 
+* Currently, only models that were created via Video Indexer are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Indexer only through the Video Indexer platform, since changes made through Custom Vision may cause unintended results.
+
+For more information, see [limitations](animated-characters-recognition.md#limitations).
+
 ## Use the animated character detection with portal 
 
 This section describes the steps you need to take to start using the animated character detection model. 
@@ -31,7 +40,7 @@ Since in  the trial accounts the Custom Vision integration is managed by Video I
 If you own a Video Indexer paid account, you need to connect a Custom Vision account first. If you don't have a Custom Vision account already, please create one. For more information, see [Custom Vision](../../cognitive-services/custom-vision-service/overview.md).
 
 > [!NOTE]
-> Both accounts need to be in the same region. The Custom Vision integration is currently not supported in the Japan region.
+> Review the [limitations and considerations](#considerations) section below.
 
 #### Connect a Custom Vision account with API 
 
@@ -60,9 +69,6 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
 1. Click on the **Content model customization** button in the top-right corner.
 1. Go to the **Animated characters** tab.
 1. Once you click on Manage models in Custom Vision”**, you will be transferred to the Custom Vision account you just connected.
-
-> [!NOTE]
-> Currently, only models that were created via Video Indexer are supported. Models that are created through Custom Vision will not be available. In addition, the best practice is to edit models that were created through Video Indexer only through the Video Indexer platform, since changes made through Custom Vision may cause unintended results.
 
 ### Create an animated characters model
 
@@ -126,7 +132,7 @@ Follow these steps to connect you Custom Vision account to Video Indexer, or to 
     * Trial account: the model will be deleted from Customs vision as well. 
     
         > [!NOTE]
-        > In a trial account, you only have one model you can use. After you delete it, you can’t train other models.
+        > In a trial account, you only have one model you can use. After you delete it, you can't train other models.
 
 ## Use the animated character detection with API 
 
@@ -178,12 +184,6 @@ See the animated characters in the generated JSON file.
     },
 ]
 ```
-
-## Limitations
-
-* Currently, the "animation identification" capability is not supported in East-Asia region.
-* Characters that appear to be small or far in the video may not be identified properly if the video's quality is poor.
-* The recommendation is to use a model per set of animated characters (for example per an animated series).
 
 ## Next steps
 
